@@ -1,7 +1,7 @@
-#include <gtest/gtest.h>
+﻿#include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <boost/process.hpp>
+#include <boost/process/v1.hpp>
 
 // протестим CPP проги
 #include "pi_monte_carlo_points_generator_class.hpp"
@@ -15,7 +15,7 @@ extern "C"
 #include "counters.h"
 };
 
-namespace bp = boost::process;
+namespace bp = boost::process::v1;
 
 TEST( TruePISelectorClass, basic_usage_test )
 {

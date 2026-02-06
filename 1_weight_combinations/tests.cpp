@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file tests.cpp
  * @author Vladimir Nikulin (mail.jorey@gmail.com)
  * @brief
@@ -12,7 +12,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <boost/process.hpp>
+#include <boost/process/v1.hpp>
 
 // протестим CPP проги
 #include "weight_combinator.hpp"
@@ -24,7 +24,7 @@ extern "C"
 };
 
 /// @brief Псевдоним для boost::process
-namespace bp = boost::process;
+namespace bp = boost::process::v1;
 
 /**
  * @brief Тест на правильность работы класса

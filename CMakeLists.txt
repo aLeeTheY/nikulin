@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+﻿cmake_minimum_required(VERSION 3.16)
 
 project(NikulinTasks
     VERSION 1.2.0.0
@@ -12,21 +12,27 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# define _CRT_SECURE_NO_WARNING
-add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
-add_compile_definitions(
-    FMT_SHARED 
-    SPDLOG_COMPILED_LIB
-    SPDLOG_FMT_EXTERNAL
-    SPDLOG_SHARED_LIB
+if (MSVC)
+    add_compile_options(
+        /Zc:__cplusplus
 
-    BOOST_ATOMIC_NO_LIB
-    BOOST_ATOMIC_DYN_LINK
-    BOOST_FILESYSTEM_NO_LIB
-    BOOST_FILESYSTEM_DYN_LINK
-    BOOST_PROGRAM_OPTIONS_NO_LIB
-    BOOST_PROGRAM_OPTIONS_DYN_LINK
-)
+        /D_CRT_SECURE_NO_WARNINGS
+        /D_UTF8
+
+        /DFMT_SHARED
+        /DSPDLOG_COMPILED_LIB
+        /DSPDLOG_FMT_EXTERNAL
+        /DSPDLOG_SHARED_LIB
+        /DSPDLOG_FWRITE_UNLOCKED
+
+        /DBOOST_ATOMIC_NO_LIB
+        /DBOOST_ATOMIC_DYN_LINK
+        /DBOOST_FILESYSTEM_NO_LIB
+        /DBOOST_FILESYSTEM_DYN_LINK
+        /DBOOST_PROGRAM_OPTIONS_NO_LIB
+        /DBOOST_PROGRAM_OPTIONS_DYN_LINK
+    )
+endif()
 
 # all warnings as errors
 # https://stackoverflow.com/questions/2368811/how-to-set-warning-level-in-cmake

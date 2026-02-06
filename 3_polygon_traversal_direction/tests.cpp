@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
+﻿#include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <boost/process.hpp>
-namespace bp = boost::process;
+#include <boost/process/v1.hpp>
+namespace bp = boost::process::v1;
 
 // протестим CPP проги
 #include "point_class.hpp"
