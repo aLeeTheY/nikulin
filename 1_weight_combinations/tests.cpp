@@ -338,9 +338,9 @@ TEST( Main, basic_usage_test )
     bp::ipstream pipe_stream;
 
     #ifdef _WIN32
-    bp::child c( "WeightCombinations-CPP.exe", bp::std_out > pipe_stream );
+    bp::child c( "WeightCombinations-CPP.exe --log-disable", bp::std_out > pipe_stream );
     #else
-    bp::child c( "WeightCombinations-CPP", bp::std_out > pipe_stream );
+    bp::child c( "WeightCombinations-CPP --log-disable", bp::std_out > pipe_stream );
     #endif
 
     std::string line;
@@ -797,6 +797,8 @@ TEST( Main_C, get_combinations_values_test )
  */
 int main( int argc, char **argv )
 {
+    spdlog::set_level(spdlog::level::off);
+
     ::testing::InitGoogleTest( &argc, argv );
     ::testing::InitGoogleMock( &argc, argv );
 
